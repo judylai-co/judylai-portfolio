@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <script src="./image-slot.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+  <style>
+    @font-face { font-family: 'Span Compressed'; src: url('./fonts/SpanCompressed-Light.otf') format('opentype'); font-weight: 300; }
+    @font-face { font-family: 'Span Compressed'; src: url('./fonts/SpanCompressed-Regular.otf') format('opentype'); font-weight: 400; }
+    @font-face { font-family: 'Span Compressed'; src: url('./fonts/SpanCompressed-RegularItalic.otf') format('opentype'); font-weight: 400; font-style: italic; }
+    @font-face { font-family: 'Span Compressed'; src: url('./fonts/SpanCompressed-Semibold.otf') format('opentype'); font-weight: 600; }
+    @font-face { font-family: 'Span Compressed'; src: url('./fonts/SpanCompressed-Bold.otf') format('opentype'); font-weight: 700; }
+    @font-face { font-family: 'Founders Grotesk'; src: url('./fonts/FoundersGrotesk-Light.otf') format('opentype'); font-weight: 300; }
+    @font-face { font-family: 'Founders Grotesk'; src: url('./fonts/FoundersGrotesk-Regular.otf') format('opentype'); font-weight: 400; }
+    @font-face { font-family: 'Founders Grotesk'; src: url('./fonts/FoundersGrotesk-Medium.otf') format('opentype'); font-weight: 500; }
+    @font-face { font-family: 'Founders Grotesk'; src: url('./fonts/FoundersGrotesk-Semibold.otf') format('opentype'); font-weight: 600; }
+    @font-face { font-family: 'Founders Grotesk'; src: url('./fonts/FoundersGrotesk-Bold.otf') format('opentype'); font-weight: 700; }
+    body { margin: 0; background: #F6F3EE; }
+    * { box-sizing: border-box; }
+    ::selection { background: #C1502E; color: #F6F3EE; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+    .proj-card { position: relative; }
+    .proj-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 0 12%; opacity: 0; background: transparent; transition: opacity 0.3s ease, background 0.3s ease; }
+    .proj-card:hover .proj-overlay { opacity: 1; background: #F05436; }
+  </style>
+</helmet>
+<div style="background:#F6F3EE;color:#17181A;font-family:'Founders Grotesk',sans-serif;min-height:100vh;position:relative;">
+
+  <section style="padding:0 0 0 56px;display:grid;grid-template-columns:60fr 40fr;gap:51px;align-items:start;width:100%;">
+    <div style="position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:space-between;padding:48px 0;">
+      <h1 style="font-family:'Span Compressed',serif;font-weight:300;font-size:clamp(2rem,3.6vw,3.2rem);line-height:1.15;margin:0;max-width:20ch;animation:fadeUp 0.8s ease 0.1s both;">
+        Judy is a <i>senior brand &amp; digital designer</i> based in Sydney, Australia. She is <i>co-founder</i> of&nbsp;three55 studio, a digital design agency where she leads <i>design strategy and&nbsp;execution</i>.
+      </h1>
+      <div style="display:flex;gap:28px;flex-wrap:wrap;">
+        <a href="mailto:judylai.co@gmail.com" style="font-size:16px;letter-spacing:0.04em;color:#17181A;text-decoration:none;border-bottom:1px solid rgba(23,24,26,0.4);" style-hover="color:#F05436 !important;">Email</a>
+        <a href="https://www.linkedin.com/in/judyco/" style="font-size:16px;letter-spacing:0.04em;color:#17181A;text-decoration:none;border-bottom:1px solid rgba(23,24,26,0.4);" style-hover="color:#F05436 !important;">LinkedIn</a>
+        <a href="https://www.instagram.com/judy.co" style="font-size:16px;letter-spacing:0.04em;color:#17181A;text-decoration:none;border-bottom:1px solid rgba(23,24,26,0.4);" style-hover="color:#F05436 !important;">Instagram</a>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;">
+      <a href="Project-Pendula.dc.html" class="proj-card" style="text-decoration:none;color:#17181A;display:block;">
+        <div style="width:100%;height:50vh;border-radius:0;overflow:hidden;position:relative;">
+          <img src="./assets/cover-pendula.jpg" style="display:block;width:100%;height:100%;object-fit:cover;" alt="Pendula cover">
+          <div class="proj-overlay">
+            <p style="font-family:'Span Compressed',serif;font-style:italic;font-weight:300;font-size:clamp(1.4rem,2vw,1.9rem);line-height:1.3;color:#F6F3EE;margin:0;text-align:center;">An enterprise level rebrand that lead to a 30M acquisition</p>
+          </div>
+        </div>
+      </a>
+      <a href="Project-JessiesNotes.dc.html" class="proj-card" style="text-decoration:none;color:#17181A;display:block;">
+        <div style="width:100%;height:50vh;border-radius:0;overflow:hidden;position:relative;">
+          <video src="./assets/cover-jessiesnotes.mp4" autoplay loop muted playsinline style="display:block;width:100%;height:100%;object-fit:cover;object-position:left;"></video>
+          <div class="proj-overlay">
+            <p style="font-family:'Span Compressed',serif;font-style:italic;font-weight:300;font-size:clamp(1.4rem,2vw,1.9rem);line-height:1.3;color:#F6F3EE;margin:0;text-align:center;">An award winning brand & website</p>
+          </div>
+        </div>
+      </a>
+      <a href="Project-SaigonBites.dc.html" class="proj-card" style="text-decoration:none;color:#17181A;display:block;">
+        <div style="width:100%;height:50vh;border-radius:0;overflow:hidden;position:relative;">
+          <div id="sb-cover-lottie" style="display:block;width:100%;height:100%;"></div>
+          <div class="proj-overlay">
+            <p style="font-family:'Span Compressed',serif;font-style:italic;font-weight:300;font-size:clamp(1.4rem,2vw,1.9rem);line-height:1.3;color:#F6F3EE;margin:0;text-align:center;">A slick website that moved phone orders to seamless online ordering</p>
+          </div>
+        </div>
+      </a>
+      <sc-for list="{{ projects }}" as="p" hint-placeholder-count="1">
+        <a href="{{ p.href }}" class="proj-card" style="text-decoration:none;color:#17181A;display:block;">
+          <div style="width:100%;height:50vh;border-radius:0;overflow:hidden;position:relative;">
+            <image-slot id="work-cover-{{ p.name }}" shape="rect" placeholder="{{ p.name }} cover" style="display:block;width:100%;height:100%;"></image-slot>
+            <div class="proj-overlay">
+              <p style="font-family:'Span Compressed',serif;font-style:italic;font-weight:300;font-size:clamp(1.4rem,2vw,1.9rem);line-height:1.3;color:#F6F3EE;margin:0;text-align:center;">{{ p.role }}</p>
+            </div>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    const v = document.querySelector('video[src="./assets/cover-jessiesnotes.mp4"]');
+    if (v) v.addEventListener('ended', () => { v.currentTime = 0; v.play().catch(() => {}); });
+    fetch('./assets/sb-cover.json').then(r => r.json()).then(data => {
+      const el = document.getElementById('sb-cover-lottie');
+      if (el && window.lottie) {
+        window.lottie.loadAnimation({ container: el, renderer: 'svg', loop: true, autoplay: true, animationData: data, rendererSettings: { preserveAspectRatio: 'xMidYMid slice' } });
+      }
+    });
+  }
+
+  renderVals() {
+    const projects = [
+      { name: "Studio Optics", href: "Project-StudioOptics.dc.html", role: "A cohesive brand & website experience for a multi-location business" }
+    ];
+    return { projects };
+  }
+}
+</script>
+</body>
+</html>

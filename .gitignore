@@ -1,0 +1,34 @@
+# OS
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Design-tool export leftovers
+uploads/
+screenshots/
+.thumbnail
+*.dc.html.bak
+
+# Node / build
+node_modules/
+dist/
+.next/
+.astro/
+.cache/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# Cloudflare
+.wrangler/
+
+# Licensed fonts — Founders Grotesk & Span are commercial (Klim Type Foundry).
+# Raw .otf desktop files must NOT be published. Replace with a licensed
+# webfont kit (.woff2) before deploying, then un-ignore that directory.
+fonts/
