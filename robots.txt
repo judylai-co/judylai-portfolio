@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://judylai.com/sitemap.xml
