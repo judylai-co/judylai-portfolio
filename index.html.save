@@ -44,9 +44,9 @@
 
       <a class="proj-card" href="./jessies-notes.html">
         <div class="proj-card__media">
-          <div class="lottie" data-lottie="./assets/jessiesnotes-cover.json" data-lottie-fit="slice" role="img" aria-label="Jessie's Notes"></div>
+          <video src="./assets/cover-jessiesnotes.mp4" autoplay loop muted playsinline preload="metadata" style="object-position:left;"></video>
           <div class="proj-overlay">
-            <p>An award winning brand &amp; website</p>
+            <p>JessiesNotes-cover.jsonAn award winning brand &amp; website</p>
           </div>
         </div>
       </a>
