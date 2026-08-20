@@ -284,6 +284,16 @@ a.hover-accent:focus-visible { color: var(--accent); }
 .ratio-16-9 { aspect-ratio: 16 / 9; object-fit: cover; }
 .ratio-1-1  { aspect-ratio: 1 / 1;  object-fit: cover; }
 
+/* Lottie containers are empty until JS injects an SVG. That SVG carries its own
+   intrinsic size, which would otherwise widen its grid track and spill past the
+   rounded corners — so clip it and let it shrink. Pair with a .ratio-* class,
+   since an empty div has no height of its own. */
+.case-media .lottie,
+.proj-card__media > .lottie {
+  overflow: hidden;
+  min-width: 0;
+}
+
 .rounded { border-radius: 12px; overflow: hidden; }
 
 /* --- Footer --------------------------------------------------------------- */
