@@ -104,7 +104,7 @@ a.hover-accent:focus-visible { color: var(--accent); }
   font-weight: 300;
   font-size: clamp(2rem, 3.6vw, 3.2rem);
   line-height: 1.15;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
   margin: 0;
   max-width: 20ch;
   animation: fadeUp 0.8s ease 0.1s both;
