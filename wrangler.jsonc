@@ -1,0 +1,10 @@
+{
+  // Static-asset-only Worker: no server code, Cloudflare just serves this
+  // directory. Caching and security headers come from ./_headers.
+  "name": "judylai-portfolio",
+  "compatibility_date": "2026-08-28",
+  "assets": {
+    "directory": "./",
+    "not_found_handling": "404-page"
+  }
+}
