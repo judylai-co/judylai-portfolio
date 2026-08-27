@@ -28,7 +28,6 @@ pnpm-debug.log*
 # Cloudflare
 .wrangler/
 
-# Licensed fonts — Founders Grotesk & Span are commercial (Klim Type Foundry).
-# Raw .otf desktop files must NOT be published. Replace with a licensed
-# webfont kit (.woff2) before deploying, then un-ignore that directory.
-fonts/
+# Licensed fonts — the .woff2 web kit is licensed for embedding and IS
+# committed. Desktop .otf files must NOT be published.
+fonts/*.otf

@@ -4,20 +4,18 @@
    ========================================================================== */
 
 /* --- Fonts ---------------------------------------------------------------
-   Founders Grotesk and Span are licensed from Klim Type Foundry. The .otf
-   files here are desktop-licensed; swap in the .woff2 web kit before launch
-   and update the src/format below. See README.
+   Founders Grotesk and Span Compressed are licensed from Klim Type Foundry.
+   These are the .woff2 web kit files — licensed for web embedding. Do not
+   commit the desktop .otf files here. See README.
    ------------------------------------------------------------------------ */
-@font-face { font-family: 'Span Compressed'; src: url('../fonts/SpanCompressed-Light.otf') format('opentype');         font-weight: 300; font-display: swap; }
-@font-face { font-family: 'Span Compressed'; src: url('../fonts/SpanCompressed-Regular.otf') format('opentype');       font-weight: 400; font-display: swap; }
-@font-face { font-family: 'Span Compressed'; src: url('../fonts/SpanCompressed-RegularItalic.otf') format('opentype'); font-weight: 400; font-style: italic; font-display: swap; }
-@font-face { font-family: 'Span Compressed'; src: url('../fonts/SpanCompressed-Semibold.otf') format('opentype');      font-weight: 600; font-display: swap; }
-@font-face { font-family: 'Span Compressed'; src: url('../fonts/SpanCompressed-Bold.otf') format('opentype');          font-weight: 700; font-display: swap; }
-@font-face { font-family: 'Founders Grotesk'; src: url('../fonts/FoundersGrotesk-Light.otf') format('opentype');    font-weight: 300; font-display: swap; }
-@font-face { font-family: 'Founders Grotesk'; src: url('../fonts/FoundersGrotesk-Regular.otf') format('opentype');  font-weight: 400; font-display: swap; }
-@font-face { font-family: 'Founders Grotesk'; src: url('../fonts/FoundersGrotesk-Medium.otf') format('opentype');   font-weight: 500; font-display: swap; }
-@font-face { font-family: 'Founders Grotesk'; src: url('../fonts/FoundersGrotesk-Semibold.otf') format('opentype'); font-weight: 600; font-display: swap; }
-@font-face { font-family: 'Founders Grotesk'; src: url('../fonts/FoundersGrotesk-Bold.otf') format('opentype');     font-weight: 700; font-display: swap; }
+@font-face { font-family: 'Span Compressed'; src: url('../fonts/SpanCompressed-Light.woff2') format('woff2');         font-weight: 300; font-display: swap; }
+@font-face { font-family: 'Span Compressed'; src: url('../fonts/SpanCompressed-Regular.woff2') format('woff2');       font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Span Compressed'; src: url('../fonts/SpanCompressed-RegularItalic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Founders Grotesk'; src: url('../fonts/FoundersGrotesk-Light.woff2') format('woff2');    font-weight: 300; font-display: swap; }
+@font-face { font-family: 'Founders Grotesk'; src: url('../fonts/FoundersGrotesk-Regular.woff2') format('woff2');  font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Founders Grotesk'; src: url('../fonts/FoundersGrotesk-Medium.woff2') format('woff2');   font-weight: 500; font-display: swap; }
+@font-face { font-family: 'Founders Grotesk'; src: url('../fonts/FoundersGrotesk-Semibold.woff2') format('woff2'); font-weight: 600; font-display: swap; }
+@font-face { font-family: 'Founders Grotesk'; src: url('../fonts/FoundersGrotesk-Bold.woff2') format('woff2');     font-weight: 700; font-display: swap; }
 
 /* --- Tokens --------------------------------------------------------------- */
 :root {
