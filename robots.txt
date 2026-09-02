@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://judylai.com/sitemap.xml
+Sitemap: https://judylai.co/sitemap.xml

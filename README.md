@@ -65,7 +65,7 @@ straight off disk; that costs one redirect hop per navigation. If you'd rather
 avoid it, drop the extensions from the `href`s — they'll work on Pages but not
 on `file://`.
 
-`sitemap.xml`, `robots.txt` and the `og:*` tags all point at `judylai.com` —
+`sitemap.xml`, `robots.txt` and the `og:*` tags all point at `judylai.co` —
 update them if the domain differs.
 
 ## Notes on the port
