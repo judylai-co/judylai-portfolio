@@ -367,3 +367,46 @@ a.hover-accent:focus-visible { color: var(--accent); }
   .case-hero { padding-top: 64px; }
   .site-footer__meta { flex-direction: column; }
 }
+
+/* Award links — chip and banner on case pages */
+a.award-chip {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+a.award-chip:hover,
+a.award-chip:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.16);
+}
+
+a.award-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 21px;
+  border: 1px solid #FF6B4A;
+  border-radius: 14px;
+  background: #FF6B4A;
+  color: #fff;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+.award-banner__text {
+  font-size: 15px;
+  font-weight: 600;
+  /* optical nudge: centred text reads slightly high against the 22px emoji */
+  position: relative;
+  top: 2.5px;
+}
+a.award-banner:hover .award-banner__text,
+a.award-banner:focus-visible .award-banner__text {
+  font-weight: 500;
+  /* offsets Medium being narrower than Semibold, so the box keeps its width */
+  letter-spacing: 0.0117em;
+}
+a.award-banner:hover,
+a.award-banner:focus-visible {
+  background: transparent;
+  color: #FF6B4A;
+  transform: translateY(-2px);
+  box-shadow: none;
+}
