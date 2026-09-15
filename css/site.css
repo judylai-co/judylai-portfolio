@@ -447,7 +447,7 @@ a.hover-accent:focus-visible { color: var(--accent); }
   .site-footer__meta { flex-direction: column; }
 }
 
-/* Award links — chip and banner on case pages */
+/* Award links — chip and awards box on case pages */
 a.award-chip {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -457,35 +457,53 @@ a.award-chip:focus-visible {
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.16);
 }
 
-a.award-banner {
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
-  padding: 10px 21px;
+/* Awards box — outlined, title on the left (40%), award list on the right (60%).
+   Same 582px width as the single-line banner it replaced. */
+.award-box {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 20px;
+  max-width: 582px;
+  padding: 16px 21px;
   border: 1px solid #FF6B4A;
   border-radius: 14px;
-  background: #FF6B4A;
-  color: #fff;
-  text-decoration: none;
-  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
-}
-.award-banner__text {
   font-size: 15px;
+  line-height: 1.5;
+}
+
+.award-box__title {
+  margin: 0;
   font-weight: 600;
-  /* optical nudge: centred text reads slightly high against the 22px emoji */
-  position: relative;
-  top: 2.5px;
-}
-a.award-banner:hover .award-banner__text,
-a.award-banner:focus-visible .award-banner__text {
-  font-weight: 500;
-  /* offsets Medium being narrower than Semibold, so the box keeps its width */
-  letter-spacing: 0.0117em;
-}
-a.award-banner:hover,
-a.award-banner:focus-visible {
-  background: transparent;
   color: #FF6B4A;
-  transform: translateY(-2px);
-  box-shadow: none;
+}
+
+.award-box__title a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.award-box__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  color: var(--ink);
+}
+
+/* star bullet hangs, so a wrapped line lines up with the text above */
+.award-box__list li {
+  padding-left: 1.3em;
+  text-indent: -1.3em;
+}
+
+.award-box__list li::before {
+  content: "✦";
+  display: inline-block;
+  width: 1.3em;
+  text-indent: 0;
+}
+
+@media (max-width: 900px) {
+  /* too narrow for two columns — title sits above the list */
+  .award-box { grid-template-columns: 1fr; gap: 8px; }
 }
