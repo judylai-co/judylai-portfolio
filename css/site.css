@@ -186,6 +186,7 @@ a.hover-accent:focus-visible { color: var(--accent); }
   color: var(--paper);
   margin: 0;
   text-align: center;
+  text-wrap: pretty;     /* avoids a lone word on the last line where supported */
 }
 
 /* ==========================================================================
@@ -440,7 +441,7 @@ a.hover-accent:focus-visible { color: var(--accent); }
   }
 
   .proj-overlay { padding: 0 24px; }
-  .proj-overlay p { font-size: 1.15rem; }
+  /* caption text keeps the desktop size range until phones (600px block) */
 
   .case-brief { grid-template-columns: 1fr; gap: 32px; }
   /* two across; the third wraps under the first with the same spacing */
@@ -458,6 +459,8 @@ a.hover-accent:focus-visible { color: var(--accent); }
 
 @media (max-width: 600px) {
   .home__statement { max-width: none; font-size: 2rem; }
+  /* narrower caption box so a single word doesn't hang on the last line */
+  .proj-overlay p { font-size: 1.15rem; max-width: 90%; }
 }
 
 /* Touch screens: a card's caption fades in over a soft shade while the card
