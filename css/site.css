@@ -170,13 +170,12 @@ a.hover-accent:focus-visible { color: var(--accent); }
 }
 
 /* Hover is limited to mice so a tap doesn't leave the overlay stuck on. Touch
-   screens get .is-pressed from site.js while a finger is on the card. */
+   screens reveal captions on scroll instead — see the (hover: none) block. */
 @media (hover: hover) {
   .proj-card:hover .proj-overlay { opacity: 1; background: var(--accent); }
 }
 
-.proj-card:focus-visible .proj-overlay,
-.proj-card.is-pressed .proj-overlay { opacity: 1; background: var(--accent); }
+.proj-card:focus-visible .proj-overlay { opacity: 1; background: var(--accent); }
 
 .proj-overlay p {
   font-family: var(--serif);
@@ -442,6 +441,28 @@ a.hover-accent:focus-visible { color: var(--accent); }
   .site-footer__navitem:first-child { display: none; }
 
   .site-footer__meta { flex-direction: column; }
+}
+
+/* Touch screens: a card's caption fades in over a soft shade while the card
+   crosses the middle of the screen (.is-in-view comes from site.js). */
+@media (hover: none) {
+  .proj-overlay {
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 24px;
+    background: linear-gradient(to top, rgba(23, 24, 26, 0.55), rgba(23, 24, 26, 0) 65%);
+    transition: opacity 0.5s ease;
+  }
+
+  .proj-overlay p {
+    text-align: left;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
+    transform: translateY(8px);
+    transition: transform 0.5s ease;
+  }
+
+  .proj-card.is-in-view .proj-overlay { opacity: 1; }
+  .proj-card.is-in-view .proj-overlay p { transform: none; }
 }
 
 /* Award links — chip and awards box on case pages */

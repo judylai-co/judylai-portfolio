@@ -4,8 +4,8 @@
  *      loops; without this they all decode at once).
  *   2. Mount Lottie animations from `data-lottie`, lazily — these JSON files
  *      run to several MB each, so they are only fetched once near the viewport.
- *   3. Show homepage card captions while a finger is on the card, since touch
- *      screens have no hover.
+ *   3. On touch screens, which have no hover, show a homepage card's caption
+ *      while the card is in the middle of the screen.
  * None is required for the page to render.
  */
 (function () {
@@ -97,28 +97,42 @@
   }
 
   /* --- 3. Card captions on touch ----------------------------------------- */
-  function manageCardPress() {
+  function manageCardCaptions() {
     var cards = document.querySelectorAll('.proj-card');
-    if (!cards.length) return;
+    if (!cards.length || !window.matchMedia('(hover: none)').matches) return;
 
-    cards.forEach(function (card) {
-      function press() { card.classList.add('is-pressed'); }
-      function release() { card.classList.remove('is-pressed'); }
-      card.addEventListener('touchstart', press, { passive: true });
-      card.addEventListener('touchend', release);
-      card.addEventListener('touchcancel', release);
-    });
+    var queued = false;
 
-    // The back button can restore the page with a card still marked pressed.
-    window.addEventListener('pageshow', function () {
-      cards.forEach(function (card) { card.classList.remove('is-pressed'); });
-    });
+    // The active card is the one under a focus line. The line sits mid-screen,
+    // then slides down to the bottom edge over the last half-screen of scroll,
+    // because the last card never reaches the middle.
+    function update() {
+      queued = false;
+      var height = window.innerHeight;
+      var remaining = document.documentElement.scrollHeight - (window.scrollY + height);
+      var line = Math.min(Math.max(height / 2, height - remaining), height - 1);
+
+      cards.forEach(function (card) {
+        var box = card.getBoundingClientRect();
+        card.classList.toggle('is-in-view', box.top <= line && box.bottom > line);
+      });
+    }
+
+    function queue() {
+      if (queued) return;
+      queued = true;
+      window.requestAnimationFrame(update);
+    }
+
+    window.addEventListener('scroll', queue, { passive: true });
+    window.addEventListener('resize', queue);
+    update();
   }
 
   function init() {
     manageVideo();
     manageLottie();
-    manageCardPress();
+    manageCardCaptions();
   }
 
   if (document.readyState === 'loading') {
