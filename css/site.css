@@ -431,11 +431,12 @@ a.hover-accent:focus-visible { color: var(--accent); }
     padding: 40px var(--gutter) 0;
   }
 
-  /* single column: size to the screen rather than the old narrow column, and
-     hold the box to 70% of the screen for a shorter line (full width ≤600px) */
+  /* single column: hold the size at 37px (what 1024px gets) rather than letting
+     it drop to the 32px floor, and keep the box to 70% of the screen for a
+     shorter line. Phones go full width at 32px — see the 600px block. */
   .home__statement {
     max-width: 70vw;
-    font-size: clamp(2rem, 7vw, 3.4rem);
+    font-size: 2.3125rem;
   }
 
   .proj-overlay { padding: 0 24px; }
@@ -456,7 +457,7 @@ a.hover-accent:focus-visible { color: var(--accent); }
 }
 
 @media (max-width: 600px) {
-  .home__statement { max-width: none; }
+  .home__statement { max-width: none; font-size: 2rem; }
 }
 
 /* Touch screens: a card's caption fades in over a soft shade while the card
