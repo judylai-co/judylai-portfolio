@@ -1,10 +1,12 @@
 /* Judy Lai — portfolio
- * Two small behaviours, both progressive enhancements:
+ * Three small behaviours, all progressive enhancements:
  *   1. Pause offscreen video (the case studies stack several MB of autoplaying
  *      loops; without this they all decode at once).
  *   2. Mount Lottie animations from `data-lottie`, lazily — these JSON files
  *      run to several MB each, so they are only fetched once near the viewport.
- * Neither is required for the page to render.
+ *   3. Show homepage card captions while a finger is on the card, since touch
+ *      screens have no hover.
+ * None is required for the page to render.
  */
 (function () {
   'use strict';
@@ -94,9 +96,29 @@
     slots.forEach(function (slot) { observer.observe(slot); });
   }
 
+  /* --- 3. Card captions on touch ----------------------------------------- */
+  function manageCardPress() {
+    var cards = document.querySelectorAll('.proj-card');
+    if (!cards.length) return;
+
+    cards.forEach(function (card) {
+      function press() { card.classList.add('is-pressed'); }
+      function release() { card.classList.remove('is-pressed'); }
+      card.addEventListener('touchstart', press, { passive: true });
+      card.addEventListener('touchend', release);
+      card.addEventListener('touchcancel', release);
+    });
+
+    // The back button can restore the page with a card still marked pressed.
+    window.addEventListener('pageshow', function () {
+      cards.forEach(function (card) { card.classList.remove('is-pressed'); });
+    });
+  }
+
   function init() {
     manageVideo();
     manageLottie();
+    manageCardPress();
   }
 
   if (document.readyState === 'loading') {

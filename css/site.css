@@ -80,9 +80,8 @@ a.hover-accent:focus-visible { color: var(--accent); }
    ========================================================================== */
 .home {
   display: grid;
-  /* the media column stops shrinking at 440px; the text column absorbs the
-     loss until the 900px breakpoint stacks them */
-  grid-template-columns: minmax(0, 60fr) minmax(440px, 40fr);
+  /* 50:50 until the 900px breakpoint stacks them */
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 51px;
   align-items: start;
   width: 100%;
@@ -170,8 +169,14 @@ a.hover-accent:focus-visible { color: var(--accent); }
   transition: opacity 0.3s ease, background 0.3s ease;
 }
 
-.proj-card:hover .proj-overlay,
-.proj-card:focus-visible .proj-overlay { opacity: 1; background: var(--accent); }
+/* Hover is limited to mice so a tap doesn't leave the overlay stuck on. Touch
+   screens get .is-pressed from site.js while a finger is on the card. */
+@media (hover: hover) {
+  .proj-card:hover .proj-overlay { opacity: 1; background: var(--accent); }
+}
+
+.proj-card:focus-visible .proj-overlay,
+.proj-card.is-pressed .proj-overlay { opacity: 1; background: var(--accent); }
 
 .proj-overlay p {
   font-family: var(--serif);
@@ -405,10 +410,6 @@ a.hover-accent:focus-visible { color: var(--accent); }
    The export was desktop-only; these are the minimum breakpoints needed to
    stop the two-column layouts collapsing on phones.
    ========================================================================== */
-@media (max-width: 1200px) {
-  .home { grid-template-columns: 1fr 1fr; }
-}
-
 @media (max-width: 900px) {
   :root { --gutter: 24px; }
 
@@ -426,12 +427,8 @@ a.hover-accent:focus-visible { color: var(--accent); }
 
   .home__statement { max-width: none; }
 
-  .proj-overlay { opacity: 1; background: transparent; align-items: flex-end; padding: 24px; }
-  .proj-overlay p {
-    text-align: left;
-    font-size: 1.15rem;
-    text-shadow: 0 1px 24px rgba(0, 0, 0, 0.55);
-  }
+  .proj-overlay { padding: 0 24px; }
+  .proj-overlay p { font-size: 1.15rem; }
 
   .case-brief { grid-template-columns: 1fr; gap: 32px; }
   /* two across; the third wraps under the first with the same spacing */
