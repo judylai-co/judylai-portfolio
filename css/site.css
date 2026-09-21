@@ -80,8 +80,7 @@ a.hover-accent:focus-visible { color: var(--accent); }
    ========================================================================== */
 .home {
   display: grid;
-  /* the media column stops shrinking at 440px; the text column absorbs the
-     loss until the 900px breakpoint stacks them */
+  /* 60:40 on large screens; 50:50 from 1513px down, single column below 900px */
   grid-template-columns: minmax(0, 60fr) minmax(440px, 40fr);
   gap: 51px;
   align-items: start;
@@ -410,7 +409,8 @@ a.hover-accent:focus-visible { color: var(--accent); }
    The export was desktop-only; these are the minimum breakpoints needed to
    stop the two-column layouts collapsing on phones.
    ========================================================================== */
-@media (max-width: 1200px) {
+/* 50:50 on laptops (up to 1513px wide); 60:40 above that */
+@media (max-width: 1513px) {
   .home { grid-template-columns: 1fr 1fr; }
 }
 
