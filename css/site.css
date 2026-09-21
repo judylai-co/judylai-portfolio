@@ -417,19 +417,26 @@ a.hover-accent:focus-visible { color: var(--accent); }
 @media (max-width: 900px) {
   :root { --gutter: 24px; }
 
+  /* cards run edge to edge; only the intro keeps the page margin */
   .home {
     grid-template-columns: 1fr;
     gap: 32px;
+    padding-left: 0;
   }
 
   .home__intro {
     position: static;
     height: auto;
     gap: 40px;
-    padding: 40px var(--gutter) 0 0;
+    padding: 40px var(--gutter) 0;
   }
 
-  .home__statement { max-width: none; }
+  /* single column: size to the screen rather than the old narrow column, and
+     hold the box to 70% of the screen for a shorter line (full width ≤600px) */
+  .home__statement {
+    max-width: 70vw;
+    font-size: clamp(2rem, 7vw, 3.4rem);
+  }
 
   .proj-overlay { padding: 0 24px; }
   .proj-overlay p { font-size: 1.15rem; }
@@ -446,6 +453,10 @@ a.hover-accent:focus-visible { color: var(--accent); }
   .site-footer__navitem:first-child { display: none; }
 
   .site-footer__meta { flex-direction: column; }
+}
+
+@media (max-width: 600px) {
+  .home__statement { max-width: none; }
 }
 
 /* Touch screens: a card's caption fades in over a soft shade while the card
