@@ -114,6 +114,14 @@ a.hover-accent:focus-visible { color: var(--accent); }
   letter-spacing: normal;
 }
 
+/* The space before an italic phrase reads tight because the first italic
+   letter leans back into it, so it's doubled (a space here is ~0.12em). It's
+   the space that widens rather than a margin on the <i>, so a phrase that
+   starts a line isn't pushed in — a space at the end of a line hangs. */
+.home__statement .italic-gap {
+  word-spacing: 0.12em;
+}
+
 .home__social {
   display: flex;
   gap: 28px;
