@@ -20,12 +20,38 @@
 
     if (!('IntersectionObserver' in window)) return; // markup autoplays anyway
 
+    // Phones refuse autoplay unless the video is muted in the DOM *and* as a
+    // property, and they refuse it outright in Low Power Mode. Anything that
+    // gets blocked is retried on the visitor's first touch or scroll, so it
+    // starts by itself rather than waiting for a tap on the play button.
+    var blocked = [];
+
+    function attempt(video) {
+      video.muted = true;
+      var played = video.play();
+      if (played && played.catch) {
+        played.catch(function () {
+          if (blocked.indexOf(video) === -1) blocked.push(video);
+        });
+      }
+    }
+
+    function retryBlocked() {
+      blocked.splice(0).forEach(function (video) {
+        var played = video.play();
+        if (played && played.catch) played.catch(function () {});
+      });
+    }
+
+    ['touchstart', 'scroll', 'pointerdown'].forEach(function (name) {
+      window.addEventListener(name, retryBlocked, { passive: true });
+    });
+
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         var video = entry.target;
         if (entry.isIntersecting) {
-          var played = video.play();
-          if (played && played.catch) played.catch(function () {});
+          attempt(video);
         } else {
           video.pause();
         }
@@ -33,6 +59,7 @@
     }, { threshold: 0.25 });
 
     videos.forEach(function (video) {
+      video.muted = true;     // the property, not just the attribute
       video.pause();          // let the observer decide what plays
       observer.observe(video);
 

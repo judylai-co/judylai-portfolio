@@ -206,10 +206,26 @@
   .case-v2 .case-media > *,
   .case-v2 .case-quote blockquote { grid-column: 1 / -1; }
 
+  /* No row gap: each block carries its own margin, so the two don't stack —
+     that was giving 80px between everything. Desktop's 48px becomes 32px,
+     24px becomes 16px. */
   .case2 {
-    gap: 32px;
+    row-gap: 0;
+    column-gap: 0;
     padding-top: 48px;
   }
+
+  .case-v2 .case2__hero { margin-top: 32px; }
+
+  .case-v2 .case2__intro,
+  .case-v2 .case2__award,
+  .case-v2 .case2__brief,
+  .case-v2 .case2__rule,
+  .case-v2 .case2__stats { margin-top: 32px; }
+
+  .case-v2 .case2__brief { gap: 24px; }
+  .case-v2 .case2__stats { gap: 24px 16px; padding-bottom: 32px; }
+  .case-v2 main > .case-media:last-child { padding-bottom: 40px; }
 
   /* one column on phones: at 16px "CREATIVE DIRECTION" is 186px wide, so two
      columns need 396px and don't fit even a 430px phone */
