@@ -161,8 +161,9 @@
 }
 
 .case2__brief { grid-template-columns: 1fr 1fr; }
-/* the last images sit 28px above the footer rule, matching the header */
-.case-v2 main > .case-media:last-child { padding-bottom: 28px; }
+/* the last image sits twice the footer's own padding above the rule, so the
+   line doesn't crowd the artwork */
+.case-v2 main > .case-media:last-child { padding-bottom: 56px; }
 
 /* 48px from the last stat line down to the first image */
 .case2__stats { grid-template-columns: repeat(3, 1fr); padding-bottom: 48px; }
