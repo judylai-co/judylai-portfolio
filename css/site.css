@@ -347,6 +347,12 @@ a.hover-accent:focus-visible { color: var(--accent); }
 
 /* Media sections */
 .case-media { padding: 0 var(--gutter) 96px; max-width: 1180px; }
+
+/* Images sit 24px apart everywhere, the same as inside a stack or grid, so a
+   run of media sections reads as one sequence. The 96px above stays where a
+   media section is followed by something else — a quote, or the footer. */
+.case-media:has(+ .case-media) { padding-bottom: 24px; }
+
 .case-media__stack { display: flex; flex-direction: column; gap: 24px; }
 .case-media__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 
