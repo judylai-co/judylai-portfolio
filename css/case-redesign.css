@@ -120,9 +120,21 @@
 }
 
 .case2__hero {
+  position: relative;
   aspect-ratio: 16 / 9;
   border-radius: 12px;
   overflow: hidden;
+}
+
+/* Animated covers are anchored to the bottom (data-lottie-fit="slice-bottom")
+   and then allowed to run this far past the bottom edge, so the artwork sits
+   just above centre — enough to clear text at its foot without dropping the
+   whole frame. Raise to crop more off the bottom, lower to show more of it. */
+.case-v2 .case2__hero .lottie {
+  --hero-bleed: 5%;
+  position: absolute;
+  inset: 0 0 calc(-1 * var(--hero-bleed)) 0;
+  height: auto;
 }
 
 .case2__hero video,
@@ -149,6 +161,9 @@
 }
 
 .case2__brief { grid-template-columns: 1fr 1fr; }
+/* the last images sit 28px above the footer rule, matching the header */
+.case-v2 main > .case-media:last-child { padding-bottom: 28px; }
+
 /* 48px from the last stat line down to the first image */
 .case2__stats { grid-template-columns: repeat(3, 1fr); padding-bottom: 48px; }
 
