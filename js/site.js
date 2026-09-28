@@ -65,9 +65,13 @@
           autoplay: true,
           animationData: animationData,
           rendererSettings: {
+            // slice fills the frame and crops; slice-bottom crops from the top
+            // only, so artwork sitting at the foot of the frame stays whole
             preserveAspectRatio: el.dataset.lottieFit === 'slice'
               ? 'xMidYMid slice'
-              : 'xMidYMid meet'
+              : el.dataset.lottieFit === 'slice-bottom'
+                ? 'xMidYMax slice'
+                : 'xMidYMid meet'
           }
         });
       })
