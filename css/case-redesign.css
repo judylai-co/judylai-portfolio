@@ -97,11 +97,9 @@
   margin: 48px 0 0;
 }
 
-/* images run to the right edge of the grid */
-.case-v2 .case-media__stack,
-.case-v2 .case-media__grid,
-.case-v2 .case-media > img,
-.case-v2 .case-media > video { grid-column: 4 / 13; }
+/* images run to the right edge of the grid — any direct child of a media
+   section, whether that's a stack, a grid, a bare image or a rounded wrapper */
+.case-v2 .case-media > * { grid-column: 4 / 13; }
 
 /* the quote sits on the text columns, mark hanging into the gap on its left */
 .case-v2 .case-quote blockquote { grid-column: 4 / 11; padding-left: 0; }
@@ -189,10 +187,7 @@
   .case-v2 .case2__brief,
   .case-v2 .case2__rule,
   .case-v2 .case2__stats,
-  .case-v2 .case-media__stack,
-  .case-v2 .case-media__grid,
-  .case-v2 .case-media > img,
-  .case-v2 .case-media > video,
+  .case-v2 .case-media > *,
   .case-v2 .case-quote blockquote { grid-column: 1 / -1; }
 
   .case2 {
