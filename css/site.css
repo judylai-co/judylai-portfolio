@@ -10,6 +10,7 @@
    ------------------------------------------------------------------------ */
 @font-face { font-family: 'Span Compressed'; src: url('../fonts/SpanCompressed-Light.woff2') format('woff2');         font-weight: 300; font-display: swap; }
 @font-face { font-family: 'Span Compressed'; src: url('../fonts/SpanCompressed-Regular.woff2') format('woff2');       font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Span Compressed'; src: url('../fonts/SpanCompressed-LightItalic.woff2') format('woff2');   font-weight: 300; font-style: italic; font-display: swap; }
 @font-face { font-family: 'Span Compressed'; src: url('../fonts/SpanCompressed-RegularItalic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
 @font-face { font-family: 'Founders Grotesk'; src: url('../fonts/FoundersGrotesk-Light.woff2') format('woff2');    font-weight: 300; font-display: swap; }
 @font-face { font-family: 'Founders Grotesk'; src: url('../fonts/FoundersGrotesk-Regular.woff2') format('woff2');  font-weight: 400; font-display: swap; }
@@ -42,15 +43,20 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-::selection { background: var(--accent); color: var(--paper); }
+::selection { background: var(--ink); color: var(--paper); }
+
+/* Custom cursor, 24px with the hotspot in the middle. Safari ignores SVG
+   cursors, so a PNG of the same mark follows as its fallback; links keep the
+   browser's hand pointer. */
+body {
+  cursor: url('/assets/cursor.svg') 12 12,
+          url('/assets/cursor.png') 12 12,
+          auto;
+}
 
 img, video { max-width: 100%; }
 
-/* Each case study sets its own selection colour via a body class. */
-body.case-pendula      ::selection { background: #008FEF; color: #fff; }
-body.case-jessiesnotes ::selection { background: #2B4EFF; color: #fff; }
-body.case-saigonbites  ::selection { background: #C1502E; color: #fff; }
-body.case-studiooptics ::selection { background: #3F7D6E; color: #fff; }
+/* One selection colour everywhere — the per-case-study brand colours are gone. */
 
 /* --- Links ---------------------------------------------------------------- */
 /* Replaces the design export's `style-hover` attribute. */
