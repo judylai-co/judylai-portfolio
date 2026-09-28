@@ -19,7 +19,7 @@
 
 /* --- Tokens --------------------------------------------------------------- */
 :root {
-  --paper:  #F6F3EE;
+  --paper:  #F8F8F8;
   --ink:    #17181A;
   --ink-60: #454641;
   --ink-40: #8A8578;
@@ -207,7 +207,7 @@ a.hover-accent:focus-visible { color: var(--accent); }
   align-items: center;
   justify-content: space-between;
   padding: 28px var(--gutter);
-  background: rgba(246, 243, 238, 0.9);
+  background: rgba(248, 248, 248, 0.9);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(23, 24, 26, 0.08);
 }
