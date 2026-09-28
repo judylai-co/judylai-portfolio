@@ -361,6 +361,7 @@ a.hover-accent:focus-visible { color: var(--accent); }
 
 .span-2 { grid-column: span 2; }
 .ratio-16-9 { aspect-ratio: 16 / 9; object-fit: cover; }
+.ratio-3-2  { aspect-ratio: 3 / 2;  object-fit: cover; }
 .ratio-1-1  { aspect-ratio: 1 / 1;  object-fit: cover; }
 
 /* Lottie containers are empty until JS injects an SVG. That SVG carries its own
